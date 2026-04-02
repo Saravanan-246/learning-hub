@@ -1,0 +1,35 @@
+{
+  "days": [
+    {
+      "id": 1,
+      "day": 1,
+      "title": "Data Structures - Introduction & Arrays",
+      "resources": [
+        {
+          "id": 1,
+          "type": "link",
+          "title": "Data Structures Introduction - Video 1",
+          "url": "https://youtu.be/t2U989oaI1Q"
+        },
+        {
+          "id": 2,
+          "type": "link",
+          "title": "Data Structures Introduction - Video 2",
+          "url": "https://youtu.be/QhBLmwW9Zls"
+        },
+        {
+          "id": 3,
+          "type": "link",
+          "title": "Array Implementation - Video 1",
+          "url": "https://youtu.be/f7rDi9nHrd8"
+        },
+        {
+          "id": 4,
+          "type": "link",
+          "title": "Array Implementation - Video 2",
+          "url": "https://youtu.be/TLq2wrHqV2A"
+        }
+      ]
+    }
+  ]
+}
