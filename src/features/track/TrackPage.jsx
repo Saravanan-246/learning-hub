@@ -5,19 +5,36 @@ const STORAGE_KEY = "activity-data";
 const GraphPage = () => {
   const [data, setData] = useState({});
 
-  // ✅ LOAD DATA (REAL)
+  // ✅ LOAD DATA (MERGE BOTH SOURCES)
   useEffect(() => {
     const load = () => {
-      const stored = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-      setData(stored);
+      const activity =
+        JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+
+      const merged = { ...activity };
+
+      // 🔥 ALSO READ FROM day-* (fallback support)
+      Object.keys(localStorage).forEach((key) => {
+        if (key.startsWith("day-") && key.endsWith("-completed")) {
+          if (localStorage.getItem(key) === "true") {
+            const today = formatDateLocal(new Date());
+            merged[today] = 1;
+          }
+        }
+      });
+
+      setData(merged);
     };
 
     load();
+
+    // 🔥 Listen for updates inside same tab also
     window.addEventListener("storage", load);
+
     return () => window.removeEventListener("storage", load);
   }, []);
 
-  // ✅ LAST 30 DAYS (REAL VALUES)
+  // ✅ LAST 30 DAYS
   const last30 = useMemo(() => {
     const arr = [];
 
@@ -37,22 +54,25 @@ const GraphPage = () => {
     return arr;
   }, [data]);
 
-  // ✅ TOTAL ACTIVE DAYS
-  const total = useMemo(() => {
-    return last30.reduce((sum, d) => sum + d.value, 0);
-  }, [last30]);
+  // ✅ TOTAL
+  const total = useMemo(
+    () => last30.reduce((sum, d) => sum + d.value, 0),
+    [last30]
+  );
 
-  // ✅ CONSISTENCY (LAST 30 DAYS ONLY)
-  const consistency = useMemo(() => {
-    return Math.round((total / 30) * 100);
-  }, [total]);
+  // ✅ CONSISTENCY
+  const consistency = useMemo(
+    () => Math.round((total / 30) * 100),
+    [total]
+  );
 
-  // ✅ BEST DAY (MAX VALUE)
-  const best = useMemo(() => {
-    return Math.max(...last30.map((d) => d.value));
-  }, [last30]);
+  // ✅ BEST
+  const best = useMemo(
+    () => Math.max(...last30.map((d) => d.value)),
+    [last30]
+  );
 
-  // ✅ STREAK (REAL LOGIC)
+  // ✅ STREAK
   const streak = useMemo(() => {
     let count = 0;
 
@@ -64,14 +84,12 @@ const GraphPage = () => {
     return count;
   }, [last30]);
 
-  // ✅ SVG PATH (CLEAN + SAFE)
+  // ✅ GRAPH PATH
   const path = useMemo(() => {
-    const max = 1; // since values are 0 or 1
-
     return last30
       .map((d, i) => {
         const x = (i / (last30.length - 1)) * 300;
-        const y = 100 - (d.value / max) * 80; // padding top
+        const y = 100 - d.value * 80;
 
         return `${i === 0 ? "M" : "L"} ${x} ${y}`;
       })
@@ -109,7 +127,6 @@ const GraphPage = () => {
               strokeWidth="2"
             />
 
-            {/* DOTS */}
             {last30.map((d, i) => {
               const x = (i / (last30.length - 1)) * 300;
               const y = 100 - d.value * 80;
@@ -140,7 +157,7 @@ const Card = ({ title, value }) => (
   </div>
 );
 
-// ✅ DATE SAFE FORMAT
+// ✅ DATE FORMAT
 const formatDateLocal = (d) => {
   const y = d.getFullYear();
   const m = String(d.getMonth() + 1).padStart(2, "0");
