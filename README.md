@@ -31,3 +31,16 @@ This project provides a clean and intuitive interface for tracking learning acti
 ---
 
 ## Project Structure
+src/
+app/
+components/
+layout/
+ui/
+features/
+dashboard/
+days/
+weeks/
+resources/
+track/
+data/
+main.jsx
