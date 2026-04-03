@@ -30,6 +30,31 @@
           "url": "https://youtu.be/TLq2wrHqV2A"
         }
       ]
+    },
+    {
+      "id": 2,
+      "day": 2,
+      "title": "Linked List - Basics & Implementation",
+      "resources": [
+        {
+          "id": 1,
+          "type": "link",
+          "title": "What is Linked List?",
+          "url": "https://youtu.be/e4hDgvoXqsQ"
+        },
+        {
+          "id": 2,
+          "type": "link",
+          "title": "Linked List Implementation - Video 1",
+          "url": "https://youtu.be/kOUtvxXb37A"
+        },
+        {
+          "id": 3,
+          "type": "link",
+          "title": "Linked List Implementation - Video 2",
+          "url": "https://youtu.be/zbeSoVRGro4"
+        }
+      ]
     }
   ]
 }
