@@ -55,6 +55,31 @@
           "url": "https://youtu.be/zbeSoVRGro4"
         }
       ]
+    },
+    {
+      "id": 3,
+      "day": 3,
+      "title": "Linked List Advanced - Reverse, Circular & Doubly",
+      "resources": [
+        {
+          "id": 1,
+          "type": "link",
+          "title": "Reverse Linked List",
+          "url": "https://youtu.be/dYS09QpjSK8"
+        },
+        {
+          "id": 2,
+          "type": "link",
+          "title": "Circular & Doubly Linked List",
+          "url": "https://youtu.be/uLLPp3cqEds"
+        },
+        {
+          "id": 3,
+          "type": "link",
+          "title": "Doubly Linked List - Detailed Explanation & Operations",
+          "url": "https://youtu.be/JrMjIcqwMlU"
+        }
+      ]
     }
   ]
 }
