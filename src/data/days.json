@@ -64,20 +64,20 @@
         {
           "id": 1,
           "type": "link",
-          "title": "Reverse Linked List",
-          "url": "https://youtu.be/dYS09QpjSK8"
+          "title": "Reversal of Linked List in Java",
+          "url": "https://www.youtube.com/watch?v=dYS09QpjSK8"
         },
         {
           "id": 2,
           "type": "link",
-          "title": "Circular & Doubly Linked List",
-          "url": "https://youtu.be/uLLPp3cqEds"
+          "title": "Circular Linked List in Java",
+          "url": "https://www.youtube.com/watch?v=JrMjIcqwMlU"
         },
         {
           "id": 3,
           "type": "link",
-          "title": "Doubly Linked List - Detailed Explanation & Operations",
-          "url": "https://youtu.be/JrMjIcqwMlU"
+          "title": "Doubly Linked List in Java",
+          "url": "https://www.youtube.com/watch?v=uLLPp3cqEds"
         }
       ]
     }
